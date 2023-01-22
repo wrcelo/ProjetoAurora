@@ -1,0 +1,82 @@
+{{#if messages.message}}
+<div class="toast show position-fixed bottom-0 end-0 m-5" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header d-flex gap-2">
+    <i class="bi bi-exclamation-triangle-fill mr-1 text-danger fs-5"></i>
+    <strong class="me-auto text-danger fs-5">Falha no Login</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body fs-6">
+    {{messages.message}}
+  </div>
+</div>
+{{/if}}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;" class="bg-body">
+    <header class="d-flex justify-content-end w-75 justify-self-start p-2 px-5">
+    </header>
+    <hr style="border: 1.5px solid #c1cd30 ;" class="container">
+    <div class="d-flex pt-5 mt-2">
+      <p style="color: #c1cd30 ;" class="fs-1">Aurora</p>
+      <p style="color: #0095BA;" class="fs-1">Login</p>
+    </div>
+    
+      <div style="background-color: #0095BA;" class=" container mt-5 justify-self-center align-self-center  w-100 d-flex flex-column justify-content-center align-items-center p-5">
+        <form
+          action="/login/enter"
+          method="post"
+          class="d-flex flex-column gap-3 w-50"
+        >
+          <div class="d-flex flex-column gap-3">
+            <div class="form-group d-flex align-items-center justify-content-center gap-3">
+              <label class="form-label text-light" for="login">E-mail:</label>
+              <input
+                type="email"
+                class="p-1 form-control w-50 justify-self-center"
+                name="login"
+                id="login"
+                aria-describedby="emailHelp"
+                placeholder="email@email.com..."
+              />
+              </div>             
+            </div>
+          
+          <div class="gap-3 form-group d-flex align-items-center justify-content-center">
+            <label for="senha" class="text-light">Senha:</label>
+            <input
+              type="password"
+              class=" p-1 form-control w-50 justify-self-center"
+              name="senha"
+              id="senha"
+              placeholder="sua senha..."
+            />
+          </div>
+          <div class="d-flex justify-content-center">
+            <small id="emailHelp" class="text-light form-text">Nunca
+              compartilharemos seu e-mail com ninguém.</small>
+          </div>
+          <button
+            type="submit"
+            style="background-color: #00C2C1; border: none;"
+            class="btn btn-primary align-self-center w-25"
+          >Entrar</button>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <p  class="text-light">Ainda não é associado?</p>
+            <a href="/cadastrar"><p style="background-color: #c1cd30 ;" class="btn text-light py-1">Cadastre-se</p></a>
+          </div>
+        </form>
+        <div class="m-1">
+          <a href="/faq" class="text-light">Perguntas Frequentes</a>
+        </div>
+      </div>
+      <hr style="border: 1.5px solid #c1cd30 ; margin-bottom: auto;" class="container">
+      <img style="height: auto; width:200px; margin-bottom: auto;" src="https://cse.energisa.com.br/img/cliente-grupo-energisa.png" class="img-fluid" alt="">
+    
+
+  </body>
+</html>

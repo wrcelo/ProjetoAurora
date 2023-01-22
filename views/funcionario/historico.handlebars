@@ -1,0 +1,75 @@
+<header style="background-color: #0095BA;" class="d-flex p-2">
+  <div class="container">
+
+    <ul class="nav nav-pills d-flex justify-content-between gap-3">
+      <div class="d-flex align-items-center">
+
+        <li class="nav-item">
+          <a
+            href="/menu/funcionario/{{idFunc}}/visualizar"
+            class="text-dark fs-4"
+            aria-current="page"
+          >
+            <i class="bi bi-chevron-left text-light"></i>
+          </a></li>
+      </div>
+      <div class="d-flex">
+
+        <li class="nav-item align-items-center d-flex">
+
+        </li>
+
+        <li class="nav-item"><a
+            href="/menu/funcionario/{{idFunc}}/reservas"
+            class="nav-link d-flex align-items-center gap-2 text-light"
+            aria-current="page"
+          ><i class="bi bi-calendar-week"></i>Reservas</a></li>
+        <li class="nav-item"><a
+            style="background-color: #009ec5;"
+            href="/menu/funcionario/{{idFunc}}/visualizar"
+            class="shadow-sm nav-link d-flex align-items-center gap-2 text-light"
+            aria-current="page"
+          ><i class="bi bi-person-lines-fill"></i>Associados</a></li>
+        <li class="nav-item"><a
+            href="/login/logout"
+            class="nav-link d-flex align-items-center gap-2 text-light"
+          ><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+      </div>
+    </ul>
+  </div>
+</header>
+
+{{!-- <header class="d-flex justify-content-end w-75 align-self-center align-items-center p-2 px-5">
+  <ul class="nav nav-pills">
+    <li class=""><a href="/menu/funcionario/{{funcionario.id}}/visualizar" class="nav-link active" aria-current="page">Voltar</a></li>
+  </ul>
+</header> --}}
+<hr style="border: 1.2px solid #E6692F;" class="container" />
+<section
+  id="table-box"
+  class="table-box d-flex flex-column justify-content-center align-items-center"
+>
+  <p class="fs-1">Historico de Alterações do Usuário
+    {{usuario.nome_usuario}}</p>
+  <table class="table w-50 p-3 table-bordered fs-5 text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Data/hora</th>
+        <th>Funcionário</th>
+      </tr>
+    </thead>
+    {{#each listaAlteracoes}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.detalhes_alteracao}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>{{this.FuncionarioId}}</td>
+      </tr>
+    {{/each}}
+  </table>
+  <a href="/menu/funcionario/historico/{{usuario.id}}">
+    Exportar Histórico
+  </a>
+</section>

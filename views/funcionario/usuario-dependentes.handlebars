@@ -1,0 +1,75 @@
+  <header style="background-color: #0095BA;" class="d-flex p-2">
+    <div class="container">
+        <ul class="nav nav-pills d-flex justify-content-between gap-3">    
+          <div class="d-flex align-items-center">
+            
+            <li class="nav-item">
+              <a href="/menu/funcionario/{{idFunc}}" class=" text-dark fs-4" aria-current="page">
+                <i class="bi bi-chevron-left text-light"></i>
+              </a></li>
+          </div>
+          <div class="d-flex ">
+            
+            <li class="nav-item align-items-center d-flex">
+
+
+
+              </li>
+
+          <li class="nav-item"><a  href="/menu/funcionario/{{idFunc}}/reservas" class="nav-link d-flex align-items-center gap-2 text-light"  aria-current="page"><i class="bi bi-calendar-week"></i>Reservas</a></li>
+          <li class="nav-item"><a style="background-color: #009ec5;" href="/menu/funcionario/{{idFunc}}/visualizar" class="shadow-sm nav-link d-flex align-items-center gap-2 text-light" aria-current="page"><i class="bi bi-person-lines-fill"></i>Associados</a></li>
+          <li class="nav-item"><a href="/login/logout" class="nav-link d-flex align-items-center gap-2 text-light"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+          </div>
+        </ul>
+
+
+
+
+    </div>
+  </header>
+  <hr style="border: 1.5px solid #c1cd30;">
+{{!-- <header class="d-flex align-items-center w-100 justify-content-between container">
+    <h1>Dependentes do usuário: {{usuario.nome_usuario}}</h1>
+    <a class="btn btn-primary justify-self-end" href="/menu/funcionario/{{usuario.id}}/visualizar" role="button">Voltar</a>
+</header> --}}
+
+<div class="container py-5">
+    
+<h2 class="mb-4">Lista de Dependentes</h2>
+<div class="table w-100 fs-5 text-center">
+<table class="table">
+    <thead class="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Ações</th>
+            </tr>
+    </thead>
+    <tbody>
+    {{#each dependentes}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.nome_dependente}}</td>
+        <td>{{this.cpf_dependente}}</td>
+        <td>{{this.data_nascimento_dependente}}</td>
+        <td>{{this.tipo_dependente}}</td>
+        <td> 
+            <a href="/dependentes/funcionario/edit/dep={{this.id}}"><i class="bi bi-pencil-square"></i></a> |
+            <a href="/dependentes/funcionario/delete/{{this.id}}"><i class="bi bi-trash-fill text-danger"></i></a>
+        </td>
+    </tr>
+        {{else}}
+    </table>
+        <div class="text-center">
+
+        <span >Esse associado não cadastrou dependentes</span>
+        </div>
+      {{/each}}
+</div>
+</div>
+
+
+

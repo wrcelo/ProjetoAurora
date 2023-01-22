@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{usuario.nome}}</title>
+</head>
+<body>
+   <header style="background-color: #0095BA;" class="d-flex p-2">
+    <div class="container">
+
+
+
+        <ul class="nav nav-pills d-flex justify-content-end gap-3">    
+          
+          <div class="d-flex ">
+
+          <li class="nav-item"><a href="/menu/funcionario/{{usuario.id}}/reservas" class="nav-link d-flex align-items-center gap-2 text-light"  aria-current="page"><i class="bi bi-calendar-week"></i>Reservas</a></li>
+          <li class="nav-item"><a href="/menu/funcionario/{{usuario.id}}/visualizar" class="nav-link d-flex align-items-center gap-2 text-light" aria-current="page"><i class="bi bi-person-lines-fill"></i>Associados</a></li>
+          <li class="nav-item"><a href="/login/logout" class="nav-link d-flex align-items-center gap-2 text-light"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+          </div>
+        </ul>
+
+
+
+
+    </div>
+  </header>
+
+
+  <hr style="border: 1.5px solid #c1cd30;" >
+
+  <div class="container py-5">
+
+   <h1> Logado como: {{usuario.nome_usuario}}</h1>
+   <p class="lead" >Nivel de acesso: {{perfil.nome_perfil}}</p>
+  </div>
+</body>
+</html>

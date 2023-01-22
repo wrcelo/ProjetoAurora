@@ -1,0 +1,149 @@
+
+    <header style="background-color: #0095BA;" class="d-flex p-2">
+    <div class="container">
+
+
+
+        <ul class="nav nav-pills d-flex justify-content-between gap-3">    
+          <div class="d-flex align-items-center">
+            <li class="nav-item">
+              <a href="/menu/associado/{{usuario.id}}/conta" class=" text-dark fs-4" aria-current="page">
+                <i class="bi bi-chevron-left text-light"></i>
+              </a></li>
+          </div>
+          <div class="d-flex ">
+
+        {{#if associadoStatus}}
+                 <li class="nav-item"><a href="/menu/associado/{{usuario.id}}/reservas" class="nav-link d-flex align-items-center gap-2 text-light"  aria-current="page"><i class="bi bi-calendar-week"></i>Reservas</a></li>
+        {{/if}}
+          <li class="nav-item"><a style="background-color: #009ec5;" href="/menu/associado/{{usuario.id}}/conta" class=" shadow-sm nav-link d-flex align-items-center gap-2 text-light" aria-current="page"><i class="bi bi-person-circle"></i>Conta</a></li>
+          <li class="nav-item"><a href="/login/logout" class="nav-link d-flex align-items-center gap-2 text-light"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+          </div>
+        </ul>
+
+
+
+
+    </div>
+  </header>
+
+{{#if messages.message}}
+{{!-- <div class="alert alert-danger" role="alert">
+  {{messages.message}}
+  <br>
+</div> --}}
+<div class="toast show position-fixed bottom-0 end-0 m-5" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header d-flex gap-2">
+    <i class="bi bi-exclamation-triangle-fill mr-1 text-danger fs-5"></i>
+    <strong class="me-auto text-danger fs-5">Erro no Cadastro</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body fs-6">
+    {{messages.message}}
+  </div>
+</div>
+{{/if}}
+
+
+<div class="container py-5">
+        
+            <div class="cursor mb-4 d-flex justify-content-between align-items-center">
+      <div>
+        <h1 class="block m-0">Dependentes</h1>
+        <span class="lead">Veja todos os seus depentendes abaixo</span>
+        
+      </div>
+
+        <div class="d-flex flex-row align-items-center gap-3">
+
+              <i style="cursor: pointer; font-size:50px; border-radius:50%; color: #0095BA;" type="button" class="shadow bi bi-plus-circle-fill" data-bs-toggle="modal" data-bs-target="#modalDependentes"></i>
+        </div>
+    </div>
+
+<div class="py-5">
+    
+<div class="table-responsive">
+<table class="table w-100 p-3 fs-5 text-center">
+    <thead class="table-dark">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Ações</th>
+            </tr>
+    </thead>
+    <tbody>
+    {{#each dependentes}}
+    <tr>
+        <td>{{this.nome_dependente}}</td>
+        <td>{{this.cpf_dependente}}</td>
+        <td>{{this.data_nascimento_dependente}}</td>
+        <td>{{this.tipo_dependente}}</td>
+        <td> 
+            <a href="/dependentes/edit/{{this.id}}"><i class="bi bi-pencil-square"></i></a> |
+            <a class="text-danger" href="/dependentes/delete/{{this.id}}"><i class="bi bi-trash-fill"></i></a>
+        </td>
+
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+</div>
+
+
+
+      <div class="modal fade" id="modalDependentes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Dependente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<form action="/dependentes/save/user={{usuario.id}}" method="post">
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nome:</label>
+        <div class="col-sm-9">
+            <input type="text" name="nome" class="form-control" required />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">CPF:</label>
+        <div class="col-sm-9">
+            <input type="text" name="cpf" class="form-control" required />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Data de Nascimento:</label>
+        <div class="col-sm-9">
+            <input type="date" name="data_nascimento" class="form-control" required />
+        </div>
+    </div>
+    <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Tipo:</label>
+        <div class="col-sm-9">
+            <select class="form-select" name="tipo" aria-label="Default select example" required>
+                <option selected disabled value="">Selecionar</option>
+                <option value="Conjuge">Conjuge</option>
+                <option value="Filho">Filho(a)</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <br>
+    <input type="hidden" name="AssociadoId" value="{{associado.id}}"/>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="submit" value="Cadastrar" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>

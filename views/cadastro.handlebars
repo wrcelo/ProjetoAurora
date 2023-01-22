@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aurora</title>
+</head>
+<body>
+  <hr style="border: 1.5px solid #c1cd30 ;">
+<section class="content-box p-3">
+  <div
+    id="form-box"
+    class="d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="fs-1">Cadastro de Usuários</h1>
+    <form
+      action="/usuarios/save"
+      method="post"
+      id="form-cadastro"
+      class="w-25 p-3 d-flex flex-column gap-2 m-0"
+    >
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="nome"
+          id="nome"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="cpf">CPF:</label>
+        <input class="form-control" type="text" min="11" max="11" name="cpf" id="cpf" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="dataNasc">Data de Nascimento:</label>
+        <input
+          class="form-control"
+          type="date"
+          name="dataNasc"
+          id="data-nasc"
+          required
+        />
+      </div>
+      <div class="mb-3 d-flex justify-content-center align-items-center gap-3">
+        <select class="form-select" name="genero">
+          <option selected>Genero</option>
+          <option value="Homem">Homem</option>
+          <option value="Mulher">Mulher</option>
+        </select>
+      </div>
+      <div class="mb-3 d-flex flex-column">
+        <label class="form-label" for="senha">Senha:</label>
+        <input
+          class="form-control"
+          type="password"
+          min="8"
+          max="255"
+          name="senha"
+          id="senha"
+          required
+        />
+        <label class="form-label" for="csenha">Confirme a senha:</label>
+        <input
+          class="form-control"
+          type="password"
+          min="8"
+          max="255"
+          name="csenha"
+          id="csenha"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary w-100 align-self-center"
+        id="btnCadastro"
+      >Cadastrar</button>
+
+      
+    </form>
+
+       <a class="align-self-center px-3 w-25"
+        style="color: #fff; text-decoration: none;" href="/">
+        <button
+        class="btn-secondary w-100 btn"
+      >
+        Voltar</button></a>
+  </div>
+
+</section>
+
+</body>
+</html>

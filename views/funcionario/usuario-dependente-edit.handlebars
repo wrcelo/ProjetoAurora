@@ -1,0 +1,56 @@
+<section class="content-box p-3">
+  <div
+    id="form-box"
+    class="d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="fs-1">Associado: {{usuario.nome_usuario}}</h1>
+    <h1 class="fs-1">Editando dependente: {{dependentes.nome_dependente}}</h1>
+    <form
+      action="/dependentes/funcionario/edit/{{usuario.id}}/save"
+      method="post"
+      id="form-cadastro"
+      class="w-50 p-3 d-flex flex-column gap-2"
+    > <input type="hidden" name="idDependente" value="{{dependentes.id}}">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="nome"
+          id="nome"
+          value="{{dependentes.nome_dependente}}"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="cpf">CPF:</label>
+        <input class="form-control" value="{{dependentes.cpf_dependente}}"  type="text" name="cpf" id="cpf" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="dataNasc">Data de Nascimento:</label>
+        <input
+          class="form-control"
+          type="date"
+          name="dataNasc"
+          id="data-nasc"
+          value="{{dependentes.data_nascimento_dependente}}"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Tipo:</label>
+        <div class="col-sm-12">
+                <select class="form-select" name="tipo" aria-label="Default select example">
+                    <option selected>{{dependentes.tipo_dependente}}</option>
+                    <option value="Filho">Conjuge</option>  
+                    <option value="Filho">Filho(a)</option>
+                </select>
+            </div>
+      </div>
+      <br>
+      <label for="nome" class="form-label">Motivo da alteração:</label>
+      <textarea style="resize:none;" name="textarea" id="textarea" cols="15" rows="5" placeholder="Digite o motivo da alteração do associado" required></textarea>
+        <button class="btn btn-primary w-25 align-self-center" type="submit" >Atualizar</button>
+        <a class="btn btn-primary w-25 align-self-center" href="/dependentes/funcionario/user={{usuario.id}}&func={{idFunc}}" role="button">Voltar</a>
+    </form>
+  </div>
+</section>

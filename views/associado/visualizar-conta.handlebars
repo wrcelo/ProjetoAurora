@@ -1,0 +1,81 @@
+    <header style="background-color: #0095BA;" class="d-flex p-2">
+    <div class="container">
+
+
+
+        <ul class="nav nav-pills d-flex justify-content-between gap-3">    
+          <div class="d-flex align-items-center">
+            <li class="nav-item">
+              <a href="/menu/associado/{{usuario.id}}" class=" text-dark fs-4" aria-current="page">
+                <i class="bi bi-chevron-left text-light"></i>
+              </a></li>
+          </div>
+          <div class="d-flex ">
+            
+        {{#if associadoStatus.status}}
+                 <li class="nav-item"><a href="/menu/associado/{{usuario.id}}/reservas" class="nav-link d-flex align-items-center gap-2 text-light"  aria-current="page"><i class="bi bi-calendar-week"></i>Reservas</a></li>
+        {{/if}}
+        
+          <li class="nav-item"><a style="background-color: #009ec5;" href="/menu/associado/{{usuario.id}}/conta" class=" shadow-sm nav-link d-flex align-items-center gap-2 text-light" aria-current="page"><i class="bi bi-person-circle"></i>Conta</a></li>
+          <li class="nav-item"><a href="/login/logout" class="nav-link d-flex align-items-center gap-2 text-light"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+          </div>
+        </ul>
+
+
+
+
+    </div>
+  </header>
+<hr style="border: 1.5px solid #c1cd30;" >
+
+
+    <section id="table-box" >
+      <div class="container py-5">
+
+
+<div class="mb-4 d-flex justify-content-between">
+  <div>
+
+        <h1 class="block m-0">Seus dados</h1>
+        <span class="lead mb-4">Confira seus dados abaixo</span>
+  </div>
+
+
+          <div class="d-flex flex-row align-items-center gap-3">
+        <a style="background-color:#c1cd30;" class="btn text-light " href="/dependentes/user={{usuario.id}}" role="button"><i class="bi bi-people-fill"></i> Dependentes</a>
+          </div>
+</div>
+
+        <table class="table w-100 p-3 fs-5 text-center">
+          <thead class="table-dark">
+            <tr>
+              <th scope="row">ID</th>
+              <th scope="row">Nome</th>
+              <th scope="row">CPF</th>
+              <th scope="row">Genero</th>
+              <th scope="row">Email</th>
+              <th scope="row">Data Nascimento</th>
+              <th scope="row">Status</th>
+              <th scope="row">Data Cadastro</th>
+              <th scope="row">Opções</th>
+            </tr>
+          </thead>
+            <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nome_usuario}}</td>
+                <td>{{usuario.cpf_usuario}}</td>
+                <td>{{usuario.[Associado.genero_associado]}}</td>
+                <td>{{usuario.email_usuario}}</td>
+                <td>{{usuario.data_nascimento_usuario}}</td>
+                <td>{{usuario.[Associado.status]}}</td>
+                <td>{{associado.createdAt}}</td>
+                <td><a style="color:#0095BA" href="/menu/associado/{{usuario.id}}/edit"><i class="bi bi-pencil-square"></i></a></td>
+            </tr>
+        </table>
+
+
+
+  
+        </section>
+
+

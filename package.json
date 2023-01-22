@@ -1,0 +1,35 @@
+{
+  "name": "projeto-aurora",
+  "version": "1.0.0",
+  "description": "Projeto de finalização do curso de formação de programadores back-end do Rio Pomba Valley",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasilvaeduardoti/T001BACK-END-EQUIPE1.git"
+  },
+  "author": "Emmanuel Baião, Gab Zanini, Lucia Helena, Phillipe, Marcelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dasilvaeduardoti/T001BACK-END-EQUIPE1/issues"
+  },
+  "homepage": "https://github.com/dasilvaeduardoti/T001BACK-END-EQUIPE1#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.26.0",
+    "session-file-store": "^1.5.0",
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,68 @@
+    <header style="background-color: #0095BA;" class="d-flex p-2">
+    <div class="container">
+
+
+
+        <ul class="nav nav-pills d-flex justify-content-between gap-3">    
+          <div class="d-flex align-items-center">
+            <li class="nav-item">
+              <a href="/dependentes/user={{usuario.id}}" class=" text-dark fs-4" aria-current="page">
+                <i class="bi bi-chevron-left text-light"></i>
+              </a></li>
+          </div>
+          <div class="d-flex ">
+
+          <li class="nav-item"><a  href="/menu/associado/{{usuario.id}}/reservas" class=" nav-link d-flex align-items-center gap-2 text-light"  aria-current="page"><i class="bi bi-calendar-week"></i>Reservas</a></li>
+          <li class="nav-item"><a style="background-color: #009ec5;" href="/menu/associado/{{usuario.id}}/conta" class=" shadow-sm nav-link d-flex align-items-center gap-2 text-light" aria-current="page"><i class="bi bi-person-circle"></i>Conta</a></li>
+          <li class="nav-item"><a href="/login/logout" class="nav-link d-flex align-items-center gap-2 text-light"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
+          </div>
+        </ul>
+
+
+
+
+    </div>
+  </header>
+
+
+  <div class="container py-5">
+    
+
+
+      <div class="mb-5">
+        <h1 class="block m-0">{{dependentes.nome_dependente}}</h1>
+        <span class="lead">Edite os dados abaixo</span>
+        
+      </div>
+
+<form action="/dependentes/edit/save/user={{usuario.id}}&dep={{dependentes.id}}" method="post" class="d-flex flex-column">
+    <input type="hidden" name="id" value="{{dependentes.id}}" class="form-control" />
+    <div class="mb-3 row">
+        <label class="col-sm-2 mb-2 col-form-label">Nome:</label>
+            <div class="col-sm-10">
+                <input type="text" name="nome" value="{{dependentes.nome_dependente}}" class="form-control" />
+            </div>
+        <label class="col-sm-2 mb-2 col-form-label">CPF:</label>
+            <div class="col-sm-10">
+                <input type="text" name="cpf" value="{{dependentes.cpf_dependente}}" class="form-control" />
+            </div>
+        <label class="col-sm-2 mb-2 col-form-label">Data de Nascimento:</label>
+            <div class="col-sm-10">
+                <input type="date" name="data_nascimento" value="{{dependentes.data_nascimento_dependente}}" class="form-control" />
+            </div>
+        <label class="col-sm-2 mb-2 col-form-label">Tipo:</label>
+            <div class="col-sm-10">
+                <select class="form-select" name="tipo" aria-label="Default select example">
+                    <option selected>{{dependentes.tipo_dependente}}</option>
+                    <option value="Filho">Conjuge</option>  
+                    <option value="Filho">Filho(a)</option>
+                </select>
+            </div>
+    </div>
+    <div class="mb-3 row align-self-end">
+        <input type="submit" class="btn btn-outline-success" value="Atualizar">
+    </div>
+</form>
+<hr>
+<a class="btn btn-primary" href="/dependentes/user={{usuario.id}}" role="button">Voltar</a>
+  </div>
